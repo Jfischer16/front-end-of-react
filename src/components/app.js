@@ -5,7 +5,7 @@ export default class App extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            counter: 0,
+            textValue: '',
             value: '',
         };
     }
@@ -14,11 +14,14 @@ export default class App extends Component {
         this.setState({ value: event.target.value.toUpperCase() });
     }
     
+    changeText  = () => {
+        this.setState({ textValue: this.state.value });
+    }
+    
   render() {
     return (
       <div>
-        <Button name={'Add 1'} clicked={() => this.setState({ counter: this.state.counter + 1 })} />
-        <input type="text" value={this.state.value} onChange={this.textEntered} />
+        <Button name={'Click Me'} clicked={this.changeText} />
       </div>
       );
   }
